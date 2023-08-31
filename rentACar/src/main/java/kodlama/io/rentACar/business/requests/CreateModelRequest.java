@@ -10,9 +10,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateBrandRequest {
-	@NotNull
+public class CreateModelRequest {
+	@NotNull //validation constraints list
 	@NotBlank
 	@Size(min=3, max=20)
 	private String name;
+	
+	@NotNull
+	@NotBlank
+	private int brandId;
 }
