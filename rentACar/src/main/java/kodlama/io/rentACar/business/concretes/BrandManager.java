@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import kodlama.io.rentACar.business.abstracts.BrandService;
 import kodlama.io.rentACar.business.requests.CreateBrandRequest;
+import kodlama.io.rentACar.business.requests.UpdateBrandRequest;
 import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
+import kodlama.io.rentACar.business.responses.GetByIdBrandResponse;
 import kodlama.io.rentACar.core.utilities.mappers.ModelMapperService;
 import kodlama.io.rentACar.dataAccess.abstracts.BrandRepository;
 import kodlama.io.rentACar.entities.concretes.Brand;
@@ -49,6 +51,26 @@ public class BrandManager implements BrandService {
 		
 		this.brandRepository.save(brand);
 		
+	}
+
+	@Override
+	public GetByIdBrandResponse getById(int id) {
+		Brand brand = this.brandRepository.findById(id).orElseThrow();
+		
+		GetByIdBrandResponse response = this.modelMapperService.forResponse().map(brand, GetByIdBrandResponse.class);
+		
+		return response;
+	}
+
+	@Override
+	public void update(UpdateBrandRequest updateBrandRequest) {
+		Brand brand = this.modelMapperService.forRequest().map(updateBrandRequest, Brand.class);
+		this.brandRepository.save(brand);
+	}
+
+	@Override
+	public void delete(int id) {
+		this.brandRepository.deleteById(id);
 	}
 
 }
