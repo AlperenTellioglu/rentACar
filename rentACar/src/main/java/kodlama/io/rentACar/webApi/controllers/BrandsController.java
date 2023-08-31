@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import kodlama.io.rentACar.business.abstracts.BrandService;
 import kodlama.io.rentACar.business.requests.CreateBrandRequest;
 import kodlama.io.rentACar.business.requests.UpdateBrandRequest;
@@ -22,11 +23,11 @@ import kodlama.io.rentACar.business.responses.GetByIdBrandResponse;
 
 @RestController
 @RequestMapping("/api/brands")
-public class BrandsContoller {
+public class BrandsController {
 	private BrandService brandService;
 
 	@Autowired
-	public BrandsContoller(BrandService brandService) {
+	public BrandsController(BrandService brandService) {
 		this.brandService = brandService;
 	}
 	
@@ -42,7 +43,7 @@ public class BrandsContoller {
 	
 	@PostMapping()
 	@ResponseStatus(code=HttpStatus.CREATED)
-	public void add(@RequestBody CreateBrandRequest createBrandRequest) {
+	public void add(@RequestBody @Valid CreateBrandRequest createBrandRequest) {
 		this.brandService.add(createBrandRequest);
 	}
 	
