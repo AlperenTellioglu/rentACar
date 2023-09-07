@@ -23,11 +23,11 @@ import kodlama.io.rentACar.business.responses.GetByIdBrandResponse;
 
 @RestController
 @RequestMapping("/api/brands")
-public class BrandsController {
+public class BrandsRestController {
 	private BrandService brandService;
 
 	@Autowired
-	public BrandsController(BrandService brandService) {
+	public BrandsRestController(BrandService brandService) {
 		this.brandService = brandService;
 	}
 	
