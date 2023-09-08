@@ -2,19 +2,19 @@ package kodlama.io.rentACar.controller;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.validation.Valid;
 import kodlama.io.rentACar.business.abstracts.BrandService;
 import kodlama.io.rentACar.business.requests.CreateBrandRequest;
 import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
+import kodlama.io.rentACar.business.responses.GetByIdBrandResponse;
 import kodlama.io.rentACar.entities.concretes.Brand;
 import lombok.AllArgsConstructor;
 
@@ -41,6 +41,15 @@ public class BrandsController {
 
 		model.addAttribute("brand", brand);
 
+		return "brand-form";
+	}
+	
+	@GetMapping("/showFormForUpdate")
+	public String showFormForUpdate(@RequestParam("brandId") int id, Model theModel) {
+		GetByIdBrandResponse brand = brandService.getById(id);
+		
+		theModel.addAttribute("brand", brand);
+		
 		return "brand-form";
 	}
 

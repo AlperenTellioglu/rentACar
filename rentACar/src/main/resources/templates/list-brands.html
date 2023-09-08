@@ -28,6 +28,7 @@
 		<thead class="table-dark">
 			<tr>
 				<th>Name</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		
@@ -36,6 +37,12 @@
 			
 				<td th:text="${tempBrand.name}" />	
 				
+				<td>
+					<a th:href="@{/brands/showFormForUpdate(brandId=${tempBrand.id})}"
+					class="btn btn-info btn-sm">
+						Update
+					</a>
+				</td>
 			</tr>
 		</tbody>		
 	</table>

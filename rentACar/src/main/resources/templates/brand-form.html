@@ -24,6 +24,8 @@
 		<form action="#" th:action="@{/brands/save}"
 						 th:object="${brand}" method="POST">
 
+			<input type="hidden" th:field="*{id}">
+			
 			<input type="text" th:field="*{name}"
 					class="form-control mb-4 w-25" placeholder="Name">
 						 
