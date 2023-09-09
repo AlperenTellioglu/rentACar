@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Araba Kiralama Sitesi</title>
+    <link rel="stylesheet" />
+    
+    <style>
+	/* Temel stillemeler */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .hero {
+            background-size: cover;
+            text-align: center;
+            padding: 100px 0;
+            color: #fff;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .featured-cars {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .contact {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+</style>
+    
+</head>
+<body>
+    <header>
+        <h1>Araba Kiralama</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Ana Sayfa</a></li>
+                <li><a th:href="@{/brands/list}">Arabalar</a></li>
+                <li><a href="#">Hakkımızda</a></li>
+                <li><a href="#">İletişim</a></li>
+                <li><a th:href="@{/showMyLoginPage}">Giriş Yap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Hayalindeki Arabayı Kirala</h2>
+        <p>Geniş araç seçenekleri ve uygun fiyatlarla en iyi araç kiralama deneyimini yaşayın.</p>
+        <a href="#" class="button">Araçları Keşfet</a>
+    </section>
+
+    <section class="featured-cars">
+        <h2>Öne Çıkan Araçlar</h2>
+        <!-- Öne çıkan araçların listesi buraya gelebilir -->
+    </section>
+
+    <section class="contact">
+        <h2>Bizimle İletişime Geçin</h2>
+        <p>Soru sormak veya rezervasyon yapmak için bize ulaşın.</p>
+        <a href="#" class="button">İletişim</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Araba Kiralama</p>
+    </footer>
+</body>
+</html>
