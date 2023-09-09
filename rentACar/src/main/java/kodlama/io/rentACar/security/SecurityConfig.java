@@ -32,7 +32,12 @@ public class SecurityConfig {
 						form
 								.loginPage("/showMyLoginPage")
 								.loginProcessingUrl("/authenticateTheUser")
-								.permitAll());
+								.permitAll()
+								
+				).logout(logout -> logout.permitAll()
+								
+						
+				);
 		
 		return http.build();
 	}
