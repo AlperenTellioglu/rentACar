@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabalar - Araba Kiralama Sitesi</title>
+    <link rel="stylesheet"> 
+    <style>
+        /* Özelleştirilmiş stillemeler */
+        .car-list {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .car-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .car-list th, .car-list td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .car-list th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="car-list">
+        <h2>Arabalar ve Modelleri</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Marka</th>
+                    <th>Model</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="tempModel : ${models}">
+                    <td th:text="${tempModel.brandName}"></td> 
+                    <td th:text="${tempModel.name}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/}" class="back-button">Anasayfa</a>
+    </div>
+</body>
+</html>

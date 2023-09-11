@@ -19,7 +19,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/api/models")
 @AllArgsConstructor
-public class ModelsController {
+public class ModelsRestController {
 	private ModelService modelService;
 
 	@GetMapping()

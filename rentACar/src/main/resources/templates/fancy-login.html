@@ -67,8 +67,14 @@
 
                             </form>
                             
-                            <form>
-                                   <a th:href="@{/}" >Go to Homepage</a>    
+                            <form action="#" th:action="@{/}" method="POST">
+								<div style="margin-top: 10px;" class="form-group">
+                                    <div class="col-sm-6 controls">
+                                        
+                                        <a th:href="@{/}" class="btn btn-primary" >Back to the Homepage</a>
+                                    </div>
+                                </div>
+                                   <!-- <a th:href="@{/}" >Back to the Homepage</a> -->    
 			
 							</form>
                             

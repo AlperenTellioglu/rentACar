@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<html lang="tr" xmlns:th="http://www.thymeleaf.org"
+				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,18 +94,19 @@
         <nav>
             <ul>
                 <li><a href="#">Ana Sayfa</a></li>
-                <li><a th:href="@{/brands/list}">Arabalar</a></li>
+                <li><a th:href="@{/models/list}">Arabalar</a></li>
                 <li><a href="#">Hakkımızda</a></li>
                 <li><a href="#">İletişim</a></li>
                 <li><a th:href="@{/showMyLoginPage}">Giriş Yap</a></li>
-            </ul>
+				<li><a th:href="@{/brands/list}">Araçları Düzenle</a></li>
+            </ul>          
         </nav>
     </header>
 
     <section class="hero">
         <h2>Hayalindeki Arabayı Kirala</h2>
         <p>Geniş araç seçenekleri ve uygun fiyatlarla en iyi araç kiralama deneyimini yaşayın.</p>
-        <a href="#" class="button">Araçları Keşfet</a>
+        <a th:href="@{/models/list}" class="button">Araçları Keşfet</a>
     </section>
 
     <section class="featured-cars">
