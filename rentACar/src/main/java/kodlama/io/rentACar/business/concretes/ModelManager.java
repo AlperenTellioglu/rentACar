@@ -22,7 +22,7 @@ public class ModelManager implements ModelService {
 
 	@Override
 	public List<GetAllModelsResponse> getAll() {
-		List<kodlama.io.rentACar.entities.concretes.Model> models = modelRepository.findAll();
+		List<Model> models = modelRepository.findAll();
 		
 		List<GetAllModelsResponse> modelsResponse = models.stream()
 				.map(model->this.modelMapperService.forResponse()

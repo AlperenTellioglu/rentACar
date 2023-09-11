@@ -19,7 +19,12 @@ public class SecurityConfig {
 				.roles("ADMIN")
 				.build();
 		
-		return new InMemoryUserDetailsManager(alp);
+		UserDetails batu = User.builder()
+				.username("batu")
+				.password("{noop}5561")
+				.roles("CUSTOMER")
+				.build();
+		return new InMemoryUserDetailsManager(alp, batu);
 	}
 	
 	@Bean
@@ -40,7 +45,9 @@ public class SecurityConfig {
 				).logout(logout -> logout.permitAll()
 												
 						
-				);
+				)
+				.exceptionHandling(configurer ->
+							configurer.accessDeniedPage("/access-denied"));
 		
 		return http.build();
 	}

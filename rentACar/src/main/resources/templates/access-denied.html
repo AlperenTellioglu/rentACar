@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Denied - Araba Kiralama Sitesi</title>
+    <link rel="stylesheet" href="styles.css"> <!-- CSS dosyanızın yolu -->
+    <style>
+        /* Özelleştirilmiş stillemeler */
+        .access-denied {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .access-denied h2 {
+            font-size: 36px;
+            color: #ff6600;
+        }
+
+        .access-denied p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="access-denied">
+        <h2>Access Denied</h2>
+        <p>Üzgünüz, bu sayfaya erişim izniniz yok.</p>
+        <a th:href="@{/}" class="back-button">Anasayfaya Dön</a>
+    </div>
+</body>
+</html>
