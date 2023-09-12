@@ -1,30 +1,21 @@
 package kodlama.io.rentACar.security;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
 
 	@Bean
-	public InMemoryUserDetailsManager userDetailsManager() {
-		UserDetails alp = User.builder()
-				.username("alp")
-				.password("{noop}5561")
-				.roles("ADMIN")
-				.build();
+	public UserDetailsManager userDetailsManager(DataSource dataSource) {
 		
-		UserDetails batu = User.builder()
-				.username("batu")
-				.password("{noop}5561")
-				.roles("CUSTOMER")
-				.build();
-		return new InMemoryUserDetailsManager(alp, batu);
+		return new JdbcUserDetailsManager(dataSource);
 	}
 	
 	@Bean
@@ -34,6 +25,8 @@ public class SecurityConfig {
 				.requestMatchers("/").permitAll()
 				.requestMatchers("/models/list").permitAll()
 				.requestMatchers("/brands/list").hasRole("ADMIN")
+				.requestMatchers("/api/**").hasRole("ADMIN")
+				.requestMatchers("/swagger-ui/**").hasAnyRole("MANAGER", "ADMIN")
 				.anyRequest().authenticated()
 			)
 				.formLogin(form ->

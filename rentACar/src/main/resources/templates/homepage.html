@@ -98,7 +98,15 @@
                 <li><a href="#">Hakkımızda</a></li>
                 <li><a href="#">İletişim</a></li>
                 <li><a th:href="@{/showMyLoginPage}">Giriş Yap</a></li>
-				<li><a th:href="@{/brands/list}">Araçları Düzenle</a></li>
+				<li><a sec:authorize="hasRole('ADMIN')" th:href="@{/brands/list}">Araçları Düzenle</a></li>
+				<li sec:authorize="hasAnyRole('CUSTOMER', 'MANAGER', 'ADMIN')">
+					<form action="#" th:action="@{/logout}" method="POST">
+		
+						<input type="submit" value="Çıkış Yap" class="button" />
+
+					</form>
+				</li>
+				
             </ul>          
         </nav>
     </header>
